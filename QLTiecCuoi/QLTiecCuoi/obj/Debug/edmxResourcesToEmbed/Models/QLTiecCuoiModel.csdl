@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLyTiecCuoiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CTDichVu">
+    <Key>
+      <PropertyRef Name="MaDV" />
+      <PropertyRef Name="MaTiecCuoi" />
+    </Key>
+    <Property Name="MaDV" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="GiaDV" Type="Int32" />
+    <Property Name="MaTiecCuoi" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DichVu" Relationship="Self.FK_CTDichVu_DichVu" FromRole="CTDichVu" ToRole="DichVu" />
+    <NavigationProperty Name="TiecCuoi" Relationship="Self.FK_CTDichVu_TiecCuoi" FromRole="CTDichVu" ToRole="TiecCuoi" />
+  </EntityType>
+  <EntityType Name="CTMonAn">
+    <Key>
+      <PropertyRef Name="MaMonAn" />
+      <PropertyRef Name="MaTiecCuoi" />
+    </Key>
+    <Property Name="MaMonAn" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaTiecCuoi" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenMonAn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GiaMonAn" Type="Int32" />
+    <Property Name="GhiChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MonAn" Relationship="Self.FK_CTMonAn_MonAn" FromRole="CTMonAn" ToRole="MonAn" />
+    <NavigationProperty Name="TiecCuoi" Relationship="Self.FK_CTMonAn_TiecCuoi" FromRole="CTMonAn" ToRole="TiecCuoi" />
+  </EntityType>
+  <EntityType Name="DichVu">
+    <Key>
+      <PropertyRef Name="MaDV" />
+    </Key>
+    <Property Name="MaDV" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GiaDV" Type="Int32" />
+    <NavigationProperty Name="CTDichVus" Relationship="Self.FK_CTDichVu_DichVu" FromRole="DichVu" ToRole="CTDichVu" />
+  </EntityType>
+  <EntityType Name="DoanhSo">
+    <Key>
+      <PropertyRef Name="ThangNam" />
+    </Key>
+    <Property Name="ThangNam" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TongDanhThu" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HoaDon">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaTiecCuoi" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="NgayThuTien" Type="DateTime" Precision="0" />
+    <Property Name="SoLuongBan" Type="Int32" />
+    <Property Name="DonGiaBan" Type="Int32" />
+    <Property Name="TongTienDichVu" Type="Int32" />
+    <NavigationProperty Name="TiecCuoi" Relationship="Self.FK_HoaDon_TiecCuoi" FromRole="HoaDon" ToRole="TiecCuoi" />
+  </EntityType>
+  <EntityType Name="LoaiSanh">
+    <Key>
+      <PropertyRef Name="MaLoaiSanh" />
+    </Key>
+    <Property Name="MaLoaiSanh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenLoaiSanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GiaBanToiThieu" Type="Int32" />
+    <NavigationProperty Name="Sanhs" Relationship="Self.FK_Sanh_LoaiSanh" FromRole="LoaiSanh" ToRole="Sanh" />
+  </EntityType>
+  <EntityType Name="MonAn">
+    <Key>
+      <PropertyRef Name="MaMonAn" />
+    </Key>
+    <Property Name="MaMonAn" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenMonAn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GiaMonAn" Type="Int32" />
+    <Property Name="GhiChi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CTMonAns" Relationship="Self.FK_CTMonAn_MonAn" FromRole="MonAn" ToRole="CTMonAn" />
+  </EntityType>
+  <EntityType Name="Sanh">
+    <Key>
+      <PropertyRef Name="MaSanh" />
+    </Key>
+    <Property Name="MaSanh" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenSanh" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="MaLoaiSanh" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuongBanToiThieu" Type="Int32" />
+    <Property Name="SoLuongBanToiDa" Type="Int32" />
+    <NavigationProperty Name="LoaiSanh" Relationship="Self.FK_Sanh_LoaiSanh" FromRole="Sanh" ToRole="LoaiSanh" />
+    <NavigationProperty Name="TiecCuois" Relationship="Self.FK_TiecCuoi_Sanh" FromRole="Sanh" ToRole="TiecCuoi" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TiecCuoi">
+    <Key>
+      <PropertyRef Name="MaTiecCuoi" />
+    </Key>
+    <Property Name="MaTiecCuoi" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenChuRe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenCoDau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCuoi" Type="DateTime" Precision="0" />
+    <Property Name="Ca" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MaSanh" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="SoBan" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="SoBanDuTru" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="TienCoc" Type="Int32" />
+    <NavigationProperty Name="CTDichVus" Relationship="Self.FK_CTDichVu_TiecCuoi" FromRole="TiecCuoi" ToRole="CTDichVu" />
+    <NavigationProperty Name="CTMonAns" Relationship="Self.FK_CTMonAn_TiecCuoi" FromRole="TiecCuoi" ToRole="CTMonAn" />
+    <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_TiecCuoi" FromRole="TiecCuoi" ToRole="HoaDon" />
+    <NavigationProperty Name="Sanh" Relationship="Self.FK_TiecCuoi_Sanh" FromRole="TiecCuoi" ToRole="Sanh" />
+  </EntityType>
+  <Association Name="FK_CTDichVu_DichVu">
+    <End Role="DichVu" Type="Self.DichVu" Multiplicity="1" />
+    <End Role="CTDichVu" Type="Self.CTDichVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DichVu">
+        <PropertyRef Name="MaDV" />
+      </Principal>
+      <Dependent Role="CTDichVu">
+        <PropertyRef Name="MaDV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTDichVu_TiecCuoi">
+    <End Role="TiecCuoi" Type="Self.TiecCuoi" Multiplicity="1" />
+    <End Role="CTDichVu" Type="Self.CTDichVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiecCuoi">
+        <PropertyRef Name="MaTiecCuoi" />
+      </Principal>
+      <Dependent Role="CTDichVu">
+        <PropertyRef Name="MaDV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTMonAn_MonAn">
+    <End Role="MonAn" Type="Self.MonAn" Multiplicity="1" />
+    <End Role="CTMonAn" Type="Self.CTMonAn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonAn">
+        <PropertyRef Name="MaMonAn" />
+      </Principal>
+      <Dependent Role="CTMonAn">
+        <PropertyRef Name="MaMonAn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTMonAn_TiecCuoi">
+    <End Role="TiecCuoi" Type="Self.TiecCuoi" Multiplicity="1" />
+    <End Role="CTMonAn" Type="Self.CTMonAn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiecCuoi">
+        <PropertyRef Name="MaTiecCuoi" />
+      </Principal>
+      <Dependent Role="CTMonAn">
+        <PropertyRef Name="MaTiecCuoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_TiecCuoi">
+    <End Role="TiecCuoi" Type="Self.TiecCuoi" Multiplicity="0..1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiecCuoi">
+        <PropertyRef Name="MaTiecCuoi" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="MaTiecCuoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sanh_LoaiSanh">
+    <End Role="LoaiSanh" Type="Self.LoaiSanh" Multiplicity="0..1" />
+    <End Role="Sanh" Type="Self.Sanh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiSanh">
+        <PropertyRef Name="MaLoaiSanh" />
+      </Principal>
+      <Dependent Role="Sanh">
+        <PropertyRef Name="MaLoaiSanh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TiecCuoi_Sanh">
+    <End Role="Sanh" Type="Self.Sanh" Multiplicity="0..1" />
+    <End Role="TiecCuoi" Type="Self.TiecCuoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sanh">
+        <PropertyRef Name="MaSanh" />
+      </Principal>
+      <Dependent Role="TiecCuoi">
+        <PropertyRef Name="MaSanh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLyTiecCuoiEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CTDichVus" EntityType="Self.CTDichVu" />
+    <EntitySet Name="CTMonAns" EntityType="Self.CTMonAn" />
+    <EntitySet Name="DichVus" EntityType="Self.DichVu" />
+    <EntitySet Name="DoanhSoes" EntityType="Self.DoanhSo" />
+    <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
+    <EntitySet Name="LoaiSanhs" EntityType="Self.LoaiSanh" />
+    <EntitySet Name="MonAns" EntityType="Self.MonAn" />
+    <EntitySet Name="Sanhs" EntityType="Self.Sanh" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TiecCuois" EntityType="Self.TiecCuoi" />
+    <AssociationSet Name="FK_CTDichVu_DichVu" Association="Self.FK_CTDichVu_DichVu">
+      <End Role="DichVu" EntitySet="DichVus" />
+      <End Role="CTDichVu" EntitySet="CTDichVus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTDichVu_TiecCuoi" Association="Self.FK_CTDichVu_TiecCuoi">
+      <End Role="TiecCuoi" EntitySet="TiecCuois" />
+      <End Role="CTDichVu" EntitySet="CTDichVus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTMonAn_MonAn" Association="Self.FK_CTMonAn_MonAn">
+      <End Role="MonAn" EntitySet="MonAns" />
+      <End Role="CTMonAn" EntitySet="CTMonAns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTMonAn_TiecCuoi" Association="Self.FK_CTMonAn_TiecCuoi">
+      <End Role="TiecCuoi" EntitySet="TiecCuois" />
+      <End Role="CTMonAn" EntitySet="CTMonAns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_TiecCuoi" Association="Self.FK_HoaDon_TiecCuoi">
+      <End Role="TiecCuoi" EntitySet="TiecCuois" />
+      <End Role="HoaDon" EntitySet="HoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sanh_LoaiSanh" Association="Self.FK_Sanh_LoaiSanh">
+      <End Role="LoaiSanh" EntitySet="LoaiSanhs" />
+      <End Role="Sanh" EntitySet="Sanhs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TiecCuoi_Sanh" Association="Self.FK_TiecCuoi_Sanh">
+      <End Role="Sanh" EntitySet="Sanhs" />
+      <End Role="TiecCuoi" EntitySet="TiecCuois" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

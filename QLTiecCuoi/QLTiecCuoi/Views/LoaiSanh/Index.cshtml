@@ -1,0 +1,47 @@
+﻿@model IEnumerable<QLTiecCuoi.Models.LoaiSanh>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/FrameLayout.cshtml";
+}
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<!-- Table show list-->
+
+<div class="table-responsive div-body show-list">
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Mã loại sảnh</th>
+                <th>Tên loại sảnh</th>
+                <th>Đơn giá bàn tối thiểu</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MaLoaiSanh</td>
+                        <td>@item.TenLoaiSanh</td>
+                        <td>@item.GiaBanToiThieu</td>
+                        <td>
+                            <a class="details-loai-sanh" at="@item.MaLoaiSanh">Details</a>
+
+                            @Html.ActionLink("Xem", "Details", "LoaiSanh", new { id = item.MaLoaiSanh }, htmlAttributes: new { @class = "details-loai-sanh" })
+                            @Html.ActionLink("Sửa", "Edit", "LoaiSanh", new { id = item.MaLoaiSanh }, null)
+                            @Html.ActionLink("Xóa", "delete", "LoaiSanh", new { id = item.MaLoaiSanh }, null)
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+@Scripts.Render("~/Scripts/DevScript/ShowDetails.js")
+

@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Nhà Hàng MPH-CRAZY</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    @RenderSection("css", false)
+</head>
+<body class="body">
+    <div class="ajax">
+        <div class="table-responsive div-details">
+            <table class="table table-hover">
+                <tbody>
+                    <!-- Details-->
+                </tbody>
+            </table>         
+        </div>
+    </div>
+    <div class="container-fluid section">
+        <div class="row">
+            <nav class="navbar navbar-deafult">
+                <div class="container-fluid">
+                    <ul class="nav nav-tabs">
+                        <li><img src="~/Content/images/Logo.png" alt="#" width="150" height="150" /></li>
+                    </ul>
+                    <ul class="nav nav-tabs">
+                        <li><button type="button" class="btn btn-success minh">SIGN UP</button></li>
+                        <li><button type="button" class="btn btn-success">LOG IN</button></li>
+                        <li><button type="button" class="btn btn-success">HELP</button></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3 side-bar">
+                <div class="panel-group">
+                    <div class="panel panel-success">
+                        <!-- Quản lý tiệc cưới -->
+                        <div class="panel-heading" data-toggle="collapse" href="#collapse1">
+                            <h4 class="panel-title">
+                                <a href="asd.php">Quản lý tiệc cưới</a>
+
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse submenu">
+                            @Html.ActionLink("Danh sách tiệc cưới", "Index", "TiecCuoi", null, htmlAttributes: new { @class = "panel-body" })
+
+                            @Html.ActionLink("Thêm tiệc cưới", "Create", "TiecCuoi", null, htmlAttributes: new { @class = "panel-body" })
+
+                        </div>
+                        <!-- Quản lý sảnh -->
+                        <div class="panel-heading" data-toggle="collapse" href="#collapse2">
+                            <h4 class="panel-title">
+                                <a href="asd.php">Quản lý sảnh</a>
+                            </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse submenu">
+                            @Html.ActionLink("Danh sách sảnh", "Index", "Sanh", null, htmlAttributes: new { @class = "panel-body" })
+                            @Html.ActionLink("Thêm sảnh", "Create", "Sanh", null, htmlAttributes: new { @class = "panel-body" })
+                            @Html.ActionLink("Danh sách loại sảnh", "Index", "LoaiSanh", null, htmlAttributes: new { @class = "panel-body" })
+                            @Html.ActionLink("Thêm loại sảnh", "Create", "LoaiSanh", null, htmlAttributes: new { @class = "panel-body" })
+                        </div>
+                        <!-- Quản lý món ăn -->
+                        <div class="panel-heading" data-toggle="collapse" href="#collapse3">
+                            <h4 class="panel-title">
+                                <a href="asd.php">Quản lý món ăn</a>
+                            </h4>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse submenu">
+                            @Html.ActionLink("Danh sách món ăn", "Index", "MonAn", null, htmlAttributes: new { @class = "panel-body" })
+                            @Html.ActionLink("Thêm món ăn", "Create", "MonAn", null, htmlAttributes: new { @class = "panel-body" })
+                        </div>
+                        <!-- Quản lý dịch vụ -->
+                        <div class="panel-heading" data-toggle="collapse" href="#collapse4">
+                            <h4 class="panel-title">
+                                <a href="asd.php">Quản lý dịch vụ</a>
+                            </h4>
+                        </div>
+                        <div id="collapse4" class="panel-collapse collapse submenu">
+                            @Html.ActionLink("Danh sách dịch vụ", "Index", "DichVu", null, htmlAttributes: new { @class = "panel-body" })
+                            @Html.ActionLink("Thêm dịch vụ", "Create", "DichVu", null, htmlAttributes: new { @class = "panel-body" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9 content">
+                <div class="container-fluid body-content">
+                    @RenderBody()
+
+
+                </div>
+            </div>
+        </div>
+        <hr />
+        <footer>
+            <div class="row footer" id="footer">
+                <div class="col-md-4">
+                    <h2 style=" font-size : 20px">HỆ THỐNG CÁC CHI NHÁNH</h2>
+                    <p>CN 182 Trần Quang Khải, P.Tân Định, Q.1, HCM</p>
+                    <p>Hotline: 028.66801268 - 0902.689.881</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h2 style=" font-size : 20px">PHẢN ÁNH DỊCH VỤ</h2>
+                    <p>Qúy khách hàng không vừa lòng với dịch vụ của nhà hàng vui lòng để lại khiếu nại và thông tin khách hàng <b><a href="#"><span style="color : white;">tại đây.</span></a></b></p>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <img src="~/Content/images/fb.png" width="50" height="50" />&nbsp&nbsp&nbsp&nbsp01222345156 <br>
+                    <p>&nbsp&nbsp&nbsp&nbspPhục vụ quý khách là niềm vinh hạnh <br>&nbsp&nbsp&nbsp&nbspcủa chúng tôi .</p>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

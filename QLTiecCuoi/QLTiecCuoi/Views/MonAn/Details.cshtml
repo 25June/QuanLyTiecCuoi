@@ -1,0 +1,43 @@
+﻿@model QLTiecCuoi.Models.MonAn
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/FrameLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MonAn</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenMonAn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenMonAn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaMonAn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaMonAn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GhiChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GhiChi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaMonAn }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

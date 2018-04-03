@@ -1,0 +1,45 @@
+*{padding:0;margin:0}
+
+body {
+    padding: 0;
+   
+}
+.section {
+    padding: 0;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+.row {
+    margin: 0;
+}
+#footer {
+    background-color: #FFCC33;
+}
+.div-button > .btn {
+    width: 150px;
+}
+.div-button > .btn:hover {
+    background: aqua;
+}
+hr {
+    margin: 5px 0;
+}
+.div-content {
+    height: 400px;
+    overflow: auto;
+}
+/*Table*/
+.table {
+    margin: 0;
+}
+.show-list {
+     max-height: 200px;
+     overflow: auto;
+}
+.show-list td, th {
+    text-align: center;
+}
+.div-body {
+    position: relative;
+}
+

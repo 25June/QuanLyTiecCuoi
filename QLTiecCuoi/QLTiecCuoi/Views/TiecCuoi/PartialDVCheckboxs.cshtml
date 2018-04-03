@@ -1,0 +1,24 @@
+﻿@model IEnumerable<QLTiecCuoi.Models.DichVu>
+<div class="show-list">
+    <table class="tb-mon-an col-md-12">
+        <thead>
+            <tr>
+                <th>Chọn</th>
+                <th>Tên món ăn</th>
+                <th>Giá món ăn</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td><input type="checkbox" value="@item.MaDV"></td>
+                        <td>@item.TenDV</td>
+                        <td>@item.GiaDV</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,35 @@
+﻿@model QLTiecCuoi.Models.DichVu
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/FrameLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DichVu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaDV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaDV)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaDV }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

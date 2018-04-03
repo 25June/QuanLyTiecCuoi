@@ -1,0 +1,53 @@
+﻿@model IEnumerable<QLTiecCuoi.Models.Sanh>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/FrameLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenSanh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuongBanToiThieu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuongBanToiDa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiSanh.TenLoaiSanh)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSanh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuongBanToiThieu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuongBanToiDa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiSanh.TenLoaiSanh)
+        </td>
+        <td>
+            <h1>@item.MaSanh.Length</h1>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaSanh }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaSanh }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaSanh })
+        </td>
+    </tr>
+}
+
+</table>

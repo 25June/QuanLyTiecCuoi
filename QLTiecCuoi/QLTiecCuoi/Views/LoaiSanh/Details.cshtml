@@ -1,0 +1,35 @@
+﻿@model QLTiecCuoi.Models.LoaiSanh
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/FrameLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LoaiSanh</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLoaiSanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoaiSanh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaBanToiThieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaBanToiThieu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaLoaiSanh }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,71 @@
+﻿@model QLTiecCuoi.Models.Sanh
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/FrameLayout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <!-- Container table create item -->
+        <div class="container-fluid">
+            <div class="row test">
+                <div class="table-responsive">
+                    <h3>Thônh tin tiệc cưới</h3>
+                    <table class="hover-td table table-hover">
+                        <tbody>
+                            <tr>
+                                <td class="form-group">
+                                    <!-- Sửa label tại đây-->
+                                    @Html.Label("Mã sãnh", htmlAttributes: new { @class = "control-label col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.EditorFor(model => model.MaSanh, new { htmlAttributes = new { @class = "form-control", disabled = "disable" } })
+                                        @Html.ValidationMessageFor(model => model.MaSanh, "", new { @class = "text-danger" })
+                                    </div>
+                                </td>
+                                <td class="form-group">
+                                    <!-- Sửa label tại đây-->
+                                    @Html.Label("Tên sảnh", htmlAttributes: new { @class = "control-label col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.EditorFor(model => model.TenSanh, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.TenSanh, "", new { @class = "text-danger" })
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td class="form-group">
+                                    <!-- Sửa label tại đây-->
+                                    @Html.Label("Loại sảnh", htmlAttributes: new { @class = "control-label col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.DropDownList("MaLoaiSanh", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.LoaiSanh, "", new { @class = "text-danger" })
+                                    </div>
+                                </td>
+                                <td class="form-group"></td>
+                            </tr>
+                            <tr class="div-btn-ok-back">
+                                <td class="form-group div-button">
+                                    <input style="float:right;" value="Clear" class="btn btn-default" />
+                                </td>
+                                <td class="form-group div-button">
+                                    <input style="" type="submit" value="Create" class="btn btn-default" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

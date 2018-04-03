@@ -1,0 +1,59 @@
+﻿@model IEnumerable<QLTiecCuoi.Models.TiecCuoi>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/FrameLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<!-- Table show list-->
+<div class="table-responsive show-list">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Mã tiệc cưới</th>
+                <th>Mã khách hàng</th>
+                <th>Tên chú rễ</th>
+                <th>Tên cô dâu</th>
+                <th>Ngày cưới</th>
+                <th>Mã sảnh</th>
+                <th>Số bàn</th>
+                <th>Số bàn dự trữ</th>
+                <th>Tiền cọc</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MaTiecCuoi</td>
+                        <td>@item.TenChuRe</td>
+                        <td>@item.TenCoDau</td>
+                        <td>@item.NgayCuoi</td>
+                        <td>@item.MaSanh</td>
+                        <td>@item.SoBan</td>
+                        <td>@item.SoBanDuTru</td>
+                        <td>@item.TienCoc</td>
+                        <td>
+                            @Html.ActionLink("Chi tiết món ăn", "index")
+                            @Html.ActionLink("Chi tiết dịch vụ", "index")
+                        </td>
+                        <td>
+                            @Html.ActionLink("Xem", "Details", "TiecCuoi", new { id = item.MaTiecCuoi }, null)
+                            @Html.ActionLink("Sửa", "Edit", "TiecCuoi", new { id = item.MaTiecCuoi }, null)
+                            @Html.ActionLink("Xóa", "Delete", "TiecCuoi", new { id = item.MaTiecCuoi }, null)
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<script src="~/Scripts/DevScript/main.js">
+
+</script>

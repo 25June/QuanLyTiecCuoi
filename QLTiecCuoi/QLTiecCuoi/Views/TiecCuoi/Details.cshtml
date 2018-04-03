@@ -1,0 +1,91 @@
+﻿@model QLTiecCuoi.Models.TiecCuoi
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/FrameLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TiecCuoi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenChuRe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenChuRe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenCoDau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenCoDau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoDienThoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoDienThoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayCuoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayCuoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoBan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoBanDuTru)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoBanDuTru)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TienCoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TienCoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sanh.TenSanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sanh.TenSanh)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaTiecCuoi }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

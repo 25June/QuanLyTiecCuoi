@@ -1,0 +1,46 @@
+﻿@model IEnumerable<QLTiecCuoi.Models.MonAn>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/FrameLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenMonAn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiaMonAn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GhiChi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenMonAn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaMonAn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GhiChi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaMonAn }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaMonAn }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaMonAn })
+        </td>
+    </tr>
+}
+
+</table>
