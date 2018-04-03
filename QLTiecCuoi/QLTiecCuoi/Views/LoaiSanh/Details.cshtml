@@ -4,15 +4,12 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/FrameLayout.cshtml";
 }
-
-<h2>Details</h2>
-
 <div>
-    <h4>LoaiSanh</h4>
+    <h4>Thông tin loại sảnh</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.TenLoaiSanh)
+           Tên loại sảnh: 
         </dt>
 
         <dd>
@@ -20,7 +17,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.GiaBanToiThieu)
+            Giá bán tối thiểu: 
         </dt>
 
         <dd>

@@ -34,7 +34,20 @@ namespace QLTiecCuoi.Controllers
             }
             return View(monAn);
         }
-
+        [HttpGet]
+        public ActionResult DetailsAjax(string id)
+        {
+            if(id==null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            MonAn monAn = db.MonAns.Find(id);
+            if(monAn == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+            return Json(monAn, JsonRequestBehavior.AllowGet);
+        }
         // GET: MonAns/Create
         public ActionResult Create()
         {

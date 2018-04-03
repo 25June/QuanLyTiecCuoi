@@ -29,6 +29,7 @@ namespace QLTiecCuoi
                      "~/Content/bootstrap.css",
                      "~/Content/navigation.css",
                      "~/Content/details.css",
+                     "~/Content/header.css",
                      "~/Content/main.css"/*,
                      "~/Content/site.css"*/));
         }

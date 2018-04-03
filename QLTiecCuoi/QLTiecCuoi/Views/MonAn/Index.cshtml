@@ -5,42 +5,42 @@
     Layout = "~/Views/Shared/FrameLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Danh sách các món ăn</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm món ăn mới", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenMonAn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GiaMonAn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GhiChi)
-        </th>
-        <th></th>
-    </tr>
+<div class="table-responsive div-body show-list">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenMonAn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GiaMonAn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GhiChi)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaMonAn }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaMonAn }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaMonAn })
-        </td>
-    </tr>
-}
-
-</table>
+    <table class="table table-hover show-list">
+        <thead>
+            <tr>
+                <th>Mã món ăn</th>
+                <th>Tên tên món</th>
+                <th>Giá</th>
+                <th>Ghi chú</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model)
+                {
+            <tr>
+                <td>@item.MaMonAn</td>
+                <td>@item.TenMonAn</td>
+                <td>@item.GiaMonAn</td>
+                <td>@item.GhiChi</td>
+                <td>
+                    <input class="check-page" type="hidden" value="1" />
+                    @Html.ActionLink("Xem", "Details", "MonAn", new { id = item.MaMonAn }, htmlAttributes: new { @class = "details", @at = item.MaMonAn })
+                    @Html.ActionLink("Sửa", "Edit", "MonAn", new { id = item.MaMonAn }, null)
+                    @Html.ActionLink("Xóa", "delete", "MonAn", new { id = item.MaMonAn }, null)
+                </td>
+            </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+@Scripts.Render("~/Scripts/DevScript/ShowDetails.js")

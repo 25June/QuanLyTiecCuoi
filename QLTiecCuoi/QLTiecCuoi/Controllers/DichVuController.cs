@@ -34,7 +34,20 @@ namespace QLTiecCuoi.Controllers
             }
             return View(dichVu);
         }
-
+        [HttpGet]
+        public ActionResult DetailsAjax(string id)
+        {
+            if(id==null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            DichVu dichVu = db.DichVus.Find(id);
+            if (dichVu == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+            return Json(dichVu, JsonRequestBehavior.AllowGet);
+        }
         // GET: DichVus/Create
         public ActionResult Create()
         {
