@@ -1,0 +1,14 @@
+*{padding:0;margin:0}
+@font-face {
+	font-family:font_rb;
+}
+.logo{
+	padding-left:1px;
+}
+.name{
+    color: white;
+}
+.header{
+	background-color:#ff9933;
+    padding: 10px 10px 5px 10px;
+}

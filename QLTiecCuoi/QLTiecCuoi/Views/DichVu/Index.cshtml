@@ -1,40 +1,45 @@
-﻿@model IEnumerable<QLTiecCuoi.Models.DichVu>
+﻿
+@model IEnumerable<QLTiecCuoi.Models.DichVu>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/FrameLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Thông tin các dịch vụ</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm dịch vụ mới", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenDV)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GiaDV)
-        </th>
-        <th></th>
-    </tr>
+<div class="table-responsive div-body show-list">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenDV)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GiaDV)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaDV }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaDV }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaDV })
-        </td>
-    </tr>
-}
-
-</table>
+    <table class="table table-hover show-list">
+        <thead>
+            <tr>
+                <th>Mã dịch vụ</th>
+                <th>Tên dịch vụ</th>
+                <th>Gía</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MaDV</td>
+                        <td>@item.TenDV</td>
+                        <td>@item.GiaDV</td>
+                        <td>
+                            <input class="check-page" type="hidden" value="2" />
+                            @Html.ActionLink("Xem", "Details", "DichVu", new { id = item.MaDV }, htmlAttributes: new { @class = "details", @at = item.MaDV })
+                            @Html.ActionLink("Sửa", "Edit", "DichVu", new { id = item.MaDV }, null)
+                            @Html.ActionLink("Xóa", "delete", "DichVu", new { id = item.MaDV }, null)
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+@Scripts.Render("~/Scripts/DevScript/ShowDetails.js")

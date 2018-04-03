@@ -10,7 +10,7 @@
     @RenderSection("css", false)
 </head>
 <body class="body">
-    <div class="ajax">
+    <div class="ajaxDetails">
         <div class="table-responsive div-details">
             <table class="table table-hover">
                 <tbody>
@@ -20,21 +20,19 @@
         </div>
     </div>
     <div class="container-fluid section">
-        <div class="row">
-            <nav class="navbar navbar-deafult">
-                <div class="container-fluid">
-                    <ul class="nav nav-tabs">
-                        <li><img src="~/Content/images/Logo.png" alt="#" width="150" height="150" /></li>
-                    </ul>
-                    <ul class="nav nav-tabs">
-                        <li><button type="button" class="btn btn-success minh">SIGN UP</button></li>
-                        <li><button type="button" class="btn btn-success">LOG IN</button></li>
-                        <li><button type="button" class="btn btn-success">HELP</button></li>
-                    </ul>
+        <!-- header-->
+        <div class="row header">
+            <div class="col-md-3">
+                <div class="logo">
+                    <img src="~/Content/images/logovt.png" alt="#" width="190" height="90" />
                 </div>
-            </nav>
-        </div>
+            </div>
 
+            <div class="col-md-9">
+                <h1 style="font-family:impact" class="name" align="center-left">Wedding Management</h1>
+            </div>
+        </div>
+        <!--Side bar-->
         <div class="row">
             <div class="col-sm-3 side-bar">
                 <div class="panel-group">

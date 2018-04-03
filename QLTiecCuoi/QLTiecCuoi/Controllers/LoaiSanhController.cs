@@ -39,8 +39,8 @@ namespace QLTiecCuoi.Controllers
             
             return View(loaiSanh);
         }
-        [HttpGet]
-        public ActionResult DetailsTest(string id)
+       
+        public ActionResult DetailsAjax(string id)
         {
             if (id == null)
             {
@@ -51,9 +51,6 @@ namespace QLTiecCuoi.Controllers
             {
                 return HttpNotFound();
             }
-           // var kq = Newtonsoft.Json.JsonConvert.SerializeObject(new Test(1,"minh"));
-            //var kq = Newtonsoft.Json.JsonConvert.SerializeObject(loaiSanh);
-            //var kq = Json(loaiSanh, JsonRequestBehavior.AllowGet);
             return Json(loaiSanh, JsonRequestBehavior.AllowGet);
         }
         // GET: LoaiSanh/Create

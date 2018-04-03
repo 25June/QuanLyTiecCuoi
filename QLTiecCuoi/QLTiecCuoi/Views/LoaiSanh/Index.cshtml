@@ -31,9 +31,8 @@
                         <td>@item.TenLoaiSanh</td>
                         <td>@item.GiaBanToiThieu</td>
                         <td>
-                            <a class="details-loai-sanh" at="@item.MaLoaiSanh">Details</a>
-
-                            @Html.ActionLink("Xem", "Details", "LoaiSanh", new { id = item.MaLoaiSanh }, htmlAttributes: new { @class = "details-loai-sanh" })
+                            <input class="check-page" type="hidden" value="0" />
+                            @Html.ActionLink("Xem", "Details", "LoaiSanh", new { id = item.MaLoaiSanh }, htmlAttributes: new { @class = "details", @at = item.MaLoaiSanh })
                             @Html.ActionLink("Sửa", "Edit", "LoaiSanh", new { id = item.MaLoaiSanh }, null)
                             @Html.ActionLink("Xóa", "delete", "LoaiSanh", new { id = item.MaLoaiSanh }, null)
                         </td>
