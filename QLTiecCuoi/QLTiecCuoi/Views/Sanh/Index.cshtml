@@ -5,48 +5,45 @@
     Layout = "~/Views/Shared/FrameLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Danh sách sảnh</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm sảnh", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TenSanh)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoLuongBanToiThieu)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoLuongBanToiDa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LoaiSanh.TenLoaiSanh)
-        </th>
-        <th></th>
-    </tr>
+<!-- Table show list-->
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TenSanh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoLuongBanToiThieu)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoLuongBanToiDa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LoaiSanh.TenLoaiSanh)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaSanh }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaSanh }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaSanh })
-        </td>
-    </tr>
-}
+<div class="table-responsive div-body show-list">
 
-</table>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Mã sảnh</th>
+                <th>Tên sảnh</th>
+                <th>Loại sảnh</th>
+                <th>Số bàn tối thiểu</th>
+                <th>Số bàn tối đa</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model)
+                {
+            <tr>
+                <td>@item.MaSanh</td>
+                <td>@item.TenSanh</td>
+                <td>@item.MaLoaiSanh</td>
+                <td>@item.SoLuongBanToiThieu</td>
+                <td>@item.SoLuongBanToiDa</td>
+                <td>
+                    <input class="check-page" type="hidden" value="0" />
+                    @Html.ActionLink("Xem", "Details", "Sanh", new { id = item.MaSanh }, htmlAttributes: new { @class = "details", @at = item.MaLoaiSanh })
+                    @Html.ActionLink("Sửa", "Edit", "Sanh", new { id = item.MaSanh }, null)
+                    @Html.ActionLink("Xóa", "delete", "Sanh", new { id = item.MaSanh }, null)
+                </td>
+            </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+@Scripts.Render("~/Scripts/DevScript/ShowDetails.js")

@@ -24,7 +24,7 @@
         <div class="row header">
             <div class="col-md-3">
                 <div class="logo">
-                    <img src="~/Content/images/logovt.png" alt="#" width="190" height="90" />
+                    <a href="/Home/Index"><img src="~/Content/images/logovt.png" alt="#" width="190" height="90" /></a>
                 </div>
             </div>
 
@@ -32,16 +32,16 @@
                 <h1 style="font-family:impact" class="name" align="center-left">Wedding Management</h1>
             </div>
         </div>
-        <!--Side bar-->
-        <div class="row">
+        <!-- MID -->
+        <div class="row mid">
+            <!-- side bar-->
             <div class="col-sm-3 side-bar">
                 <div class="panel-group">
                     <div class="panel panel-success">
                         <!-- Quản lý tiệc cưới -->
                         <div class="panel-heading" data-toggle="collapse" href="#collapse1">
                             <h4 class="panel-title">
-                                <a href="asd.php">Quản lý tiệc cưới</a>
-
+                                <a href="">Quản lý tiệc cưới</a>
                             </h4>
                         </div>
                         <div id="collapse1" class="panel-collapse collapse submenu">
@@ -53,7 +53,7 @@
                         <!-- Quản lý sảnh -->
                         <div class="panel-heading" data-toggle="collapse" href="#collapse2">
                             <h4 class="panel-title">
-                                <a href="asd.php">Quản lý sảnh</a>
+                                <a href="#">Quản lý sảnh</a>
                             </h4>
                         </div>
                         <div id="collapse2" class="panel-collapse collapse submenu">
@@ -65,7 +65,7 @@
                         <!-- Quản lý món ăn -->
                         <div class="panel-heading" data-toggle="collapse" href="#collapse3">
                             <h4 class="panel-title">
-                                <a href="asd.php">Quản lý món ăn</a>
+                                <a href="#">Quản lý món ăn</a>
                             </h4>
                         </div>
                         <div id="collapse3" class="panel-collapse collapse submenu">
@@ -75,12 +75,33 @@
                         <!-- Quản lý dịch vụ -->
                         <div class="panel-heading" data-toggle="collapse" href="#collapse4">
                             <h4 class="panel-title">
-                                <a href="asd.php">Quản lý dịch vụ</a>
+                                <a href="#">Quản lý dịch vụ</a>
                             </h4>
                         </div>
                         <div id="collapse4" class="panel-collapse collapse submenu">
                             @Html.ActionLink("Danh sách dịch vụ", "Index", "DichVu", null, htmlAttributes: new { @class = "panel-body" })
                             @Html.ActionLink("Thêm dịch vụ", "Create", "DichVu", null, htmlAttributes: new { @class = "panel-body" })
+                        </div>
+                        <!-- Bao cao va hoa don-->
+                        <!-- Các quy định -->
+                        <div class="panel-heading" data-toggle="collapse" href="#collapse5">
+                            <h4 class="panel-title">
+                                <a href="#">Hóa đơn và báo cáo</a>
+                            </h4>
+                        </div>
+                        <div id="collapse5" class="panel-collapse collapse submenu">
+                            @Html.ActionLink("Hóa đơn", "Index", "HoaDon", null, htmlAttributes: new { @class = "panel-body" })
+                            @Html.ActionLink("Báo cáo", "Index", "BaoCao", null, htmlAttributes: new { @class = "panel-body" })
+                        </div>
+                        <!-- Các quy định -->
+                        <div class="panel-heading" data-toggle="collapse" href="#collapse6">
+                            <h4 class="panel-title">
+                                <a href="#">Các quy định</a>
+                            </h4>
+                        </div>
+                        <div id="collapse6" class="panel-collapse collapse submenu">
+                            @Html.ActionLink("Ca", "Index", "Ca", null, htmlAttributes: new { @class = "panel-body" })
+                            @Html.ActionLink("Chức năng phạt", "Index", "ThamSo", null, htmlAttributes: new { @class = "panel-body" })
                         </div>
                     </div>
                 </div>

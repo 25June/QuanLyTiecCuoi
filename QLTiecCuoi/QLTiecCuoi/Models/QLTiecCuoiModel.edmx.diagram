@@ -22,6 +22,9 @@
         <AssociationConnector Association="QLyTiecCuoiModel.FK_HoaDon_TiecCuoi" ManuallyRouted="false" />
         <AssociationConnector Association="QLyTiecCuoiModel.FK_Sanh_LoaiSanh" ManuallyRouted="false" />
         <AssociationConnector Association="QLyTiecCuoiModel.FK_TiecCuoi_Sanh" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLyTiecCuoiModel.LoaiCa" Width="1.5" PointX="7.375" PointY="7.875" />
+        <EntityTypeShape EntityType="QLyTiecCuoiModel.ThamSo" Width="1.5" PointX="3.375" PointY="8.75" />
+        <AssociationConnector Association="QLyTiecCuoiModel.FK_TiecCuoi_LoaiCa" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

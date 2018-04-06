@@ -171,10 +171,19 @@
     <Compile Include="Models\DoanhSo.cs">
       <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetAllLoaiSanh_Result.cs">
+      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\HoaDon.cs">
       <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoaiCa.cs">
+      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LoaiSanh.cs">
+      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoaiSanh_SelectLoaiSanh_Result.cs">
       <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MonAn.cs">
@@ -198,10 +207,19 @@
     <Compile Include="Models\Sanh.cs">
       <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Test.cs" />
+    <Compile Include="Models\ThamSo.cs">
+      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TiecCuoi.cs">
       <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
     </Compile>

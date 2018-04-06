@@ -5,19 +5,19 @@
       <PropertyRef Name="MaDV" />
       <PropertyRef Name="MaTiecCuoi" />
     </Key>
-    <Property Name="MaDV" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="MaDV" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="MaTiecCuoi" Type="char" MaxLength="4" Nullable="false" />
     <Property Name="TenDV" Type="nvarchar" MaxLength="50" />
     <Property Name="SoLuong" Type="char" MaxLength="2" />
     <Property Name="GiaDV" Type="int" />
-    <Property Name="MaTiecCuoi" Type="char" MaxLength="4" Nullable="false" />
   </EntityType>
   <EntityType Name="CTMonAn">
     <Key>
       <PropertyRef Name="MaMonAn" />
       <PropertyRef Name="MaTiecCuoi" />
     </Key>
-    <Property Name="MaMonAn" Type="char" MaxLength="4" Nullable="false" />
-    <Property Name="MaTiecCuoi" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="MaMonAn" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="MaTiecCuoi" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="TenMonAn" Type="nvarchar" MaxLength="50" />
     <Property Name="GiaMonAn" Type="int" />
     <Property Name="GhiChi" Type="nvarchar" MaxLength="200" />
@@ -26,7 +26,7 @@
     <Key>
       <PropertyRef Name="MaDV" />
     </Key>
-    <Property Name="MaDV" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="MaDV" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="TenDV" Type="nvarchar" MaxLength="50" />
     <Property Name="GiaDV" Type="int" />
   </EntityType>
@@ -41,26 +41,33 @@
     <Key>
       <PropertyRef Name="MaHoaDon" />
     </Key>
-    <Property Name="MaHoaDon" Type="char" MaxLength="4" Nullable="false" />
-    <Property Name="MaTiecCuoi" Type="char" MaxLength="4" />
+    <Property Name="MaHoaDon" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="MaTiecCuoi" Type="varchar" MaxLength="6" />
     <Property Name="NgayThuTien" Type="date" />
     <Property Name="SoLuongBan" Type="int" />
     <Property Name="DonGiaBan" Type="int" />
     <Property Name="TongTienDichVu" Type="int" />
   </EntityType>
+  <EntityType Name="LoaiCa">
+    <Key>
+      <PropertyRef Name="MaCa" />
+    </Key>
+    <Property Name="MaCa" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="TenCa" Type="nvarchar" MaxLength="30" />
+  </EntityType>
   <EntityType Name="LoaiSanh">
     <Key>
       <PropertyRef Name="MaLoaiSanh" />
     </Key>
-    <Property Name="MaLoaiSanh" Type="nvarchar" MaxLength="5" Nullable="false" />
-    <Property Name="TenLoaiSanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaLoaiSanh" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="TenLoaiSanh" Type="nvarchar" MaxLength="30" />
     <Property Name="GiaBanToiThieu" Type="int" />
   </EntityType>
   <EntityType Name="MonAn">
     <Key>
       <PropertyRef Name="MaMonAn" />
     </Key>
-    <Property Name="MaMonAn" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="MaMonAn" Type="varchar" MaxLength="4" Nullable="false" />
     <Property Name="TenMonAn" Type="nvarchar" MaxLength="50" />
     <Property Name="GiaMonAn" Type="int" />
     <Property Name="GhiChi" Type="nvarchar" MaxLength="200" />
@@ -69,9 +76,9 @@
     <Key>
       <PropertyRef Name="MaSanh" />
     </Key>
-    <Property Name="MaSanh" Type="char" MaxLength="5" Nullable="false" />
-    <Property Name="TenSanh" Type="char" MaxLength="10" />
-    <Property Name="MaLoaiSanh" Type="nvarchar" MaxLength="5" />
+    <Property Name="MaSanh" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="TenSanh" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaLoaiSanh" Type="varchar" MaxLength="6" />
     <Property Name="SoLuongBanToiThieu" Type="int" />
     <Property Name="SoLuongBanToiDa" Type="int" />
   </EntityType>
@@ -85,17 +92,25 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
+  <EntityType Name="ThamSo">
+    <Key>
+      <PropertyRef Name="MaTS" />
+    </Key>
+    <Property Name="MaTS" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="GiaTri" Type="varchar" MaxLength="50" />
+    <Property Name="GhiChu" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="TiecCuoi">
     <Key>
       <PropertyRef Name="MaTiecCuoi" />
     </Key>
-    <Property Name="MaTiecCuoi" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="MaTiecCuoi" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="TenChuRe" Type="nvarchar" MaxLength="50" />
     <Property Name="TenCoDau" Type="nvarchar" MaxLength="50" />
     <Property Name="SoDienThoai" Type="nvarchar" MaxLength="11" />
     <Property Name="NgayCuoi" Type="date" />
-    <Property Name="Ca" Type="char" MaxLength="1" />
-    <Property Name="MaSanh" Type="char" MaxLength="5" />
+    <Property Name="MaCa" Type="varchar" MaxLength="6" />
+    <Property Name="MaSanh" Type="varchar" MaxLength="6" />
     <Property Name="SoBan" Type="char" MaxLength="3" />
     <Property Name="SoBanDuTru" Type="char" MaxLength="2" />
     <Property Name="TienCoc" Type="int" />
@@ -172,6 +187,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_TiecCuoi_LoaiCa">
+    <End Role="LoaiCa" Type="Self.LoaiCa" Multiplicity="0..1" />
+    <End Role="TiecCuoi" Type="Self.TiecCuoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiCa">
+        <PropertyRef Name="MaCa" />
+      </Principal>
+      <Dependent Role="TiecCuoi">
+        <PropertyRef Name="MaCa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_TiecCuoi_Sanh">
     <End Role="Sanh" Type="Self.Sanh" Multiplicity="0..1" />
     <End Role="TiecCuoi" Type="Self.TiecCuoi" Multiplicity="*" />
@@ -184,16 +211,53 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="GetAllLoaiSanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="LoaiSanh_SelectLoaiSanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="maLoaiSanh" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="QLyTiecCuoiModelStoreContainer">
     <EntitySet Name="CTDichVu" EntityType="Self.CTDichVu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CTMonAn" EntityType="Self.CTMonAn" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DichVu" EntityType="Self.DichVu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DoanhSo" EntityType="Self.DoanhSo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HoaDon" EntityType="Self.HoaDon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiCa" EntityType="Self.LoaiCa" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LoaiSanh" EntityType="Self.LoaiSanh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MonAn" EntityType="Self.MonAn" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sanh" EntityType="Self.Sanh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThamSo" EntityType="Self.ThamSo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TiecCuoi" EntityType="Self.TiecCuoi" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_CTDichVu_DichVu" Association="Self.FK_CTDichVu_DichVu">
       <End Role="DichVu" EntitySet="DichVu" />
@@ -218,6 +282,10 @@
     <AssociationSet Name="FK_Sanh_LoaiSanh" Association="Self.FK_Sanh_LoaiSanh">
       <End Role="LoaiSanh" EntitySet="LoaiSanh" />
       <End Role="Sanh" EntitySet="Sanh" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TiecCuoi_LoaiCa" Association="Self.FK_TiecCuoi_LoaiCa">
+      <End Role="LoaiCa" EntitySet="LoaiCa" />
+      <End Role="TiecCuoi" EntitySet="TiecCuoi" />
     </AssociationSet>
     <AssociationSet Name="FK_TiecCuoi_Sanh" Association="Self.FK_TiecCuoi_Sanh">
       <End Role="Sanh" EntitySet="Sanh" />

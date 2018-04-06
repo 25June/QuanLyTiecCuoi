@@ -28,6 +28,9 @@ hr {
     height: 400px;
     overflow: auto;
 }
+.mid {
+    min-height: 450px;
+}
 /*Table*/
 .table {
     margin: 0;

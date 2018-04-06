@@ -10,21 +10,11 @@
 namespace QLTiecCuoi.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class LoaiSanh
+    public partial class GetAllLoaiSanh_Result
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LoaiSanh()
-        {
-            this.Sanhs = new HashSet<Sanh>();
-        }
-    
         public string MaLoaiSanh { get; set; }
         public string TenLoaiSanh { get; set; }
         public Nullable<int> GiaBanToiThieu { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sanh> Sanhs { get; set; }
     }
 }

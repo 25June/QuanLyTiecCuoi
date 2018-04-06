@@ -19,7 +19,8 @@
 .panel-heading {
     cursor: pointer;
 }
-.submenu a{
+.submenu a {
     display: block;
     text-decoration: none;
 }
+

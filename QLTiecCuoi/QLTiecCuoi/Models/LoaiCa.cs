@@ -12,19 +12,18 @@ namespace QLTiecCuoi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class LoaiSanh
+    public partial class LoaiCa
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LoaiSanh()
+        public LoaiCa()
         {
-            this.Sanhs = new HashSet<Sanh>();
+            this.TiecCuois = new HashSet<TiecCuoi>();
         }
     
-        public string MaLoaiSanh { get; set; }
-        public string TenLoaiSanh { get; set; }
-        public Nullable<int> GiaBanToiThieu { get; set; }
+        public string MaCa { get; set; }
+        public string TenCa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sanh> Sanhs { get; set; }
+        public virtual ICollection<TiecCuoi> TiecCuois { get; set; }
     }
 }
