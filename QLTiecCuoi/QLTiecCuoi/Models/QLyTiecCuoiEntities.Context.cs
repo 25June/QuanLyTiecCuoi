@@ -32,24 +32,24 @@ namespace QLTiecCuoi.Models
         public virtual DbSet<DichVu> DichVus { get; set; }
         public virtual DbSet<DoanhSo> DoanhSoes { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
+        public virtual DbSet<LoaiCa> LoaiCas { get; set; }
         public virtual DbSet<LoaiSanh> LoaiSanhs { get; set; }
         public virtual DbSet<MonAn> MonAns { get; set; }
         public virtual DbSet<Sanh> Sanhs { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<TiecCuoi> TiecCuois { get; set; }
-        public virtual DbSet<LoaiCa> LoaiCas { get; set; }
         public virtual DbSet<ThamSo> ThamSoes { get; set; }
+        public virtual DbSet<TiecCuoi> TiecCuois { get; set; }
     
         public virtual ObjectResult<GetAllLoaiSanh_Result> GetAllLoaiSanh()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllLoaiSanh_Result>("GetAllLoaiSanh");
         }
     
-        public virtual ObjectResult<LoaiSanh_SelectLoaiSanh_Result> LoaiSanh_SelectLoaiSanh(string maLoaiSanh)
+        public virtual ObjectResult<LoaiSanh_SelectLoaiSanh_Result> LoaiSanh_SelectLoaiSanh(Nullable<int> maLoaiSanh)
         {
-            var maLoaiSanhParameter = maLoaiSanh != null ?
+            var maLoaiSanhParameter = maLoaiSanh.HasValue ?
                 new ObjectParameter("maLoaiSanh", maLoaiSanh) :
-                new ObjectParameter("maLoaiSanh", typeof(string));
+                new ObjectParameter("maLoaiSanh", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LoaiSanh_SelectLoaiSanh_Result>("LoaiSanh_SelectLoaiSanh", maLoaiSanhParameter);
         }

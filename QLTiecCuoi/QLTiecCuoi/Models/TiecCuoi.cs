@@ -27,11 +27,11 @@ namespace QLTiecCuoi.Models
         public string TenCoDau { get; set; }
         public string SoDienThoai { get; set; }
         public Nullable<System.DateTime> NgayCuoi { get; set; }
+        public string MaCa { get; set; }
         public string MaSanh { get; set; }
         public string SoBan { get; set; }
         public string SoBanDuTru { get; set; }
         public Nullable<int> TienCoc { get; set; }
-        public string MaCa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTDichVu> CTDichVus { get; set; }
@@ -39,7 +39,7 @@ namespace QLTiecCuoi.Models
         public virtual ICollection<CTMonAn> CTMonAns { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
-        public virtual Sanh Sanh { get; set; }
         public virtual LoaiCa LoaiCa { get; set; }
+        public virtual Sanh Sanh { get; set; }
     }
 }

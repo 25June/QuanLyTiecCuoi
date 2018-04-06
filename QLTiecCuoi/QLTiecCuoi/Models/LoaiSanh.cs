@@ -20,7 +20,7 @@ namespace QLTiecCuoi.Models
             this.Sanhs = new HashSet<Sanh>();
         }
     
-        public string MaLoaiSanh { get; set; }
+        public int MaLoaiSanh { get; set; }
         public string TenLoaiSanh { get; set; }
         public Nullable<int> GiaBanToiThieu { get; set; }
     

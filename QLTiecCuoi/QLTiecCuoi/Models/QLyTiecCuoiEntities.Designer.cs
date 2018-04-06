@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\quang\OneDrive\Desktop\IT\CNPM2\QuanLyTiecCuoi\QLTiecCuoi\QLTiecCuoi\Models\QLTiecCuoiModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\quang\OneDrive\Desktop\IT\CNPM2\QuanLyTiecCuoi\QLTiecCuoi\QLTiecCuoi\Models\QLyTiecCuoiEntities.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

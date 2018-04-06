@@ -13,7 +13,7 @@ namespace QLTiecCuoi.Models
     
     public partial class GetAllLoaiSanh_Result
     {
-        public string MaLoaiSanh { get; set; }
+        public int MaLoaiSanh { get; set; }
         public string TenLoaiSanh { get; set; }
         public Nullable<int> GiaBanToiThieu { get; set; }
     }

@@ -64,7 +64,7 @@
           <Key>
             <PropertyRef Name="MaLoaiSanh" />
           </Key>
-          <Property Name="MaLoaiSanh" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="MaLoaiSanh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenLoaiSanh" Type="nvarchar" MaxLength="30" />
           <Property Name="GiaBanToiThieu" Type="int" />
         </EntityType>
@@ -83,7 +83,7 @@
           </Key>
           <Property Name="MaSanh" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="TenSanh" Type="nvarchar" MaxLength="50" />
-          <Property Name="MaLoaiSanh" Type="varchar" MaxLength="6" />
+          <Property Name="MaLoaiSanh" Type="int" />
           <Property Name="SoLuongBanToiThieu" Type="int" />
           <Property Name="SoLuongBanToiDa" Type="int" />
         </EntityType>
@@ -217,10 +217,6 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="GetAllLoaiSanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="LoaiSanh_SelectLoaiSanh" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="maLoaiSanh" Type="varchar" Mode="In" />
-        </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -307,10 +303,10 @@
             <PropertyRef Name="MaTiecCuoi" />
           </Key>
           <Property Name="MaDV" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaTiecCuoi" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="TenDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SoLuong" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
           <Property Name="GiaDV" Type="Int32" />
-          <Property Name="MaTiecCuoi" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="DichVu" Relationship="Self.FK_CTDichVu_DichVu" FromRole="CTDichVu" ToRole="DichVu" />
           <NavigationProperty Name="TiecCuoi" Relationship="Self.FK_CTDichVu_TiecCuoi" FromRole="CTDichVu" ToRole="TiecCuoi" />
         </EntityType>
@@ -355,11 +351,19 @@
           <Property Name="TongTienDichVu" Type="Int32" />
           <NavigationProperty Name="TiecCuoi" Relationship="Self.FK_HoaDon_TiecCuoi" FromRole="HoaDon" ToRole="TiecCuoi" />
         </EntityType>
+        <EntityType Name="LoaiCa">
+          <Key>
+            <PropertyRef Name="MaCa" />
+          </Key>
+          <Property Name="MaCa" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TenCa" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TiecCuois" Relationship="Self.FK_TiecCuoi_LoaiCa" FromRole="LoaiCa" ToRole="TiecCuoi" />
+        </EntityType>
         <EntityType Name="LoaiSanh">
           <Key>
             <PropertyRef Name="MaLoaiSanh" />
           </Key>
-          <Property Name="MaLoaiSanh" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaLoaiSanh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenLoaiSanh" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="GiaBanToiThieu" Type="Int32" />
           <NavigationProperty Name="Sanhs" Relationship="Self.FK_Sanh_LoaiSanh" FromRole="LoaiSanh" ToRole="Sanh" />
@@ -380,7 +384,7 @@
           </Key>
           <Property Name="MaSanh" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenSanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MaLoaiSanh" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="MaLoaiSanh" Type="Int32" />
           <Property Name="SoLuongBanToiThieu" Type="Int32" />
           <Property Name="SoLuongBanToiDa" Type="Int32" />
           <NavigationProperty Name="LoaiSanh" Relationship="Self.FK_Sanh_LoaiSanh" FromRole="Sanh" ToRole="LoaiSanh" />
@@ -396,6 +400,14 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="ThamSo">
+          <Key>
+            <PropertyRef Name="MaTS" />
+          </Key>
+          <Property Name="MaTS" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GiaTri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="TiecCuoi">
           <Key>
             <PropertyRef Name="MaTiecCuoi" />
@@ -405,6 +417,7 @@
           <Property Name="TenCoDau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SoDienThoai" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
           <Property Name="NgayCuoi" Type="DateTime" Precision="0" />
+          <Property Name="MaCa" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="MaSanh" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="SoBan" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="SoBanDuTru" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
@@ -412,9 +425,8 @@
           <NavigationProperty Name="CTDichVus" Relationship="Self.FK_CTDichVu_TiecCuoi" FromRole="TiecCuoi" ToRole="CTDichVu" />
           <NavigationProperty Name="CTMonAns" Relationship="Self.FK_CTMonAn_TiecCuoi" FromRole="TiecCuoi" ToRole="CTMonAn" />
           <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_TiecCuoi" FromRole="TiecCuoi" ToRole="HoaDon" />
+          <NavigationProperty Name="LoaiCa" Relationship="Self.FK_TiecCuoi_LoaiCa" FromRole="TiecCuoi" ToRole="LoaiCa" />
           <NavigationProperty Name="Sanh" Relationship="Self.FK_TiecCuoi_Sanh" FromRole="TiecCuoi" ToRole="Sanh" />
-          <Property Name="MaCa" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="LoaiCa" Relationship="QLyTiecCuoiModel.FK_TiecCuoi_LoaiCa" FromRole="TiecCuoi" ToRole="LoaiCa" />
         </EntityType>
         <Association Name="FK_CTDichVu_DichVu">
           <End Role="DichVu" Type="Self.DichVu" Multiplicity="1" />
@@ -476,6 +488,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TiecCuoi_LoaiCa">
+          <End Role="LoaiCa" Type="Self.LoaiCa" Multiplicity="0..1" />
+          <End Role="TiecCuoi" Type="Self.TiecCuoi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiCa">
+              <PropertyRef Name="MaCa" />
+            </Principal>
+            <Dependent Role="TiecCuoi">
+              <PropertyRef Name="MaCa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Sanh_LoaiSanh">
           <End Role="LoaiSanh" Type="Self.LoaiSanh" Multiplicity="0..1" />
           <End Role="Sanh" Type="Self.Sanh" Multiplicity="*" />
@@ -506,10 +530,12 @@
           <EntitySet Name="DichVus" EntityType="Self.DichVu" />
           <EntitySet Name="DoanhSoes" EntityType="Self.DoanhSo" />
           <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
+          <EntitySet Name="LoaiCas" EntityType="Self.LoaiCa" />
           <EntitySet Name="LoaiSanhs" EntityType="Self.LoaiSanh" />
           <EntitySet Name="MonAns" EntityType="Self.MonAn" />
           <EntitySet Name="Sanhs" EntityType="Self.Sanh" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="ThamSoes" EntityType="Self.ThamSo" />
           <EntitySet Name="TiecCuois" EntityType="Self.TiecCuoi" />
           <AssociationSet Name="FK_CTDichVu_DichVu" Association="Self.FK_CTDichVu_DichVu">
             <End Role="DichVu" EntitySet="DichVus" />
@@ -531,6 +557,10 @@
             <End Role="TiecCuoi" EntitySet="TiecCuois" />
             <End Role="HoaDon" EntitySet="HoaDons" />
           </AssociationSet>
+          <AssociationSet Name="FK_TiecCuoi_LoaiCa" Association="Self.FK_TiecCuoi_LoaiCa">
+            <End Role="LoaiCa" EntitySet="LoaiCas" />
+            <End Role="TiecCuoi" EntitySet="TiecCuois" />
+          </AssociationSet>
           <AssociationSet Name="FK_Sanh_LoaiSanh" Association="Self.FK_Sanh_LoaiSanh">
             <End Role="LoaiSanh" EntitySet="LoaiSanhs" />
             <End Role="Sanh" EntitySet="Sanhs" />
@@ -539,15 +569,9 @@
             <End Role="Sanh" EntitySet="Sanhs" />
             <End Role="TiecCuoi" EntitySet="TiecCuois" />
           </AssociationSet>
-          <EntitySet Name="LoaiCas" EntityType="QLyTiecCuoiModel.LoaiCa" />
-          <EntitySet Name="ThamSoes" EntityType="QLyTiecCuoiModel.ThamSo" />
-          <AssociationSet Name="FK_TiecCuoi_LoaiCa" Association="QLyTiecCuoiModel.FK_TiecCuoi_LoaiCa">
-            <End Role="LoaiCa" EntitySet="LoaiCas" />
-            <End Role="TiecCuoi" EntitySet="TiecCuois" />
-          </AssociationSet>
           <FunctionImport Name="GetAllLoaiSanh" ReturnType="Collection(QLyTiecCuoiModel.GetAllLoaiSanh_Result)" />
           <FunctionImport Name="LoaiSanh_SelectLoaiSanh" ReturnType="Collection(QLyTiecCuoiModel.LoaiSanh_SelectLoaiSanh_Result)">
-          <Parameter Name="maLoaiSanh" Mode="In" Type="String" />
+            <Parameter Name="maLoaiSanh" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -580,41 +604,13 @@
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
-        <EntityType Name="LoaiCa">
-          <Key>
-            <PropertyRef Name="MaCa" />
-          </Key>
-          <Property Name="MaCa" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
-          <Property Name="TenCa" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TiecCuois" Relationship="QLyTiecCuoiModel.FK_TiecCuoi_LoaiCa" FromRole="LoaiCa" ToRole="TiecCuoi" />
-        </EntityType>
-        <EntityType Name="ThamSo">
-          <Key>
-            <PropertyRef Name="MaTS" />
-          </Key>
-          <Property Name="MaTS" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
-          <Property Name="GiaTri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <Association Name="FK_TiecCuoi_LoaiCa">
-          <End Type="QLyTiecCuoiModel.LoaiCa" Role="LoaiCa" Multiplicity="0..1" />
-          <End Type="QLyTiecCuoiModel.TiecCuoi" Role="TiecCuoi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="LoaiCa">
-              <PropertyRef Name="MaCa" />
-            </Principal>
-            <Dependent Role="TiecCuoi">
-              <PropertyRef Name="MaCa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <ComplexType Name="GetAllLoaiSanh_Result">
-          <Property Type="String" Name="MaLoaiSanh" Nullable="false" MaxLength="6" />
+          <Property Type="Int32" Name="MaLoaiSanh" Nullable="false" />
           <Property Type="String" Name="TenLoaiSanh" Nullable="true" MaxLength="30" />
           <Property Type="Int32" Name="GiaBanToiThieu" Nullable="true" />
         </ComplexType>
         <ComplexType Name="LoaiSanh_SelectLoaiSanh_Result">
-          <Property Type="String" Name="MaLoaiSanh" Nullable="false" MaxLength="6" />
+          <Property Type="Int32" Name="MaLoaiSanh" Nullable="false" />
           <Property Type="String" Name="TenLoaiSanh" Nullable="true" MaxLength="30" />
           <Property Type="Int32" Name="GiaBanToiThieu" Nullable="true" />
         </ComplexType>
@@ -639,10 +635,10 @@
             <EntityTypeMapping TypeName="QLyTiecCuoiModel.CTDichVu">
               <MappingFragment StoreEntitySet="CTDichVu">
                 <ScalarProperty Name="MaDV" ColumnName="MaDV" />
+                <ScalarProperty Name="MaTiecCuoi" ColumnName="MaTiecCuoi" />
                 <ScalarProperty Name="TenDV" ColumnName="TenDV" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
                 <ScalarProperty Name="GiaDV" ColumnName="GiaDV" />
-                <ScalarProperty Name="MaTiecCuoi" ColumnName="MaTiecCuoi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -683,6 +679,14 @@
                 <ScalarProperty Name="SoLuongBan" ColumnName="SoLuongBan" />
                 <ScalarProperty Name="DonGiaBan" ColumnName="DonGiaBan" />
                 <ScalarProperty Name="TongTienDichVu" ColumnName="TongTienDichVu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiCas">
+            <EntityTypeMapping TypeName="QLyTiecCuoiModel.LoaiCa">
+              <MappingFragment StoreEntitySet="LoaiCa">
+                <ScalarProperty Name="MaCa" ColumnName="MaCa" />
+                <ScalarProperty Name="TenCa" ColumnName="TenCa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -727,15 +731,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ThamSoes">
+            <EntityTypeMapping TypeName="QLyTiecCuoiModel.ThamSo">
+              <MappingFragment StoreEntitySet="ThamSo">
+                <ScalarProperty Name="MaTS" ColumnName="MaTS" />
+                <ScalarProperty Name="GiaTri" ColumnName="GiaTri" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TiecCuois">
             <EntityTypeMapping TypeName="QLyTiecCuoiModel.TiecCuoi">
               <MappingFragment StoreEntitySet="TiecCuoi">
-                <ScalarProperty Name="MaCa" ColumnName="MaCa" />
                 <ScalarProperty Name="MaTiecCuoi" ColumnName="MaTiecCuoi" />
                 <ScalarProperty Name="TenChuRe" ColumnName="TenChuRe" />
                 <ScalarProperty Name="TenCoDau" ColumnName="TenCoDau" />
                 <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
                 <ScalarProperty Name="NgayCuoi" ColumnName="NgayCuoi" />
+                <ScalarProperty Name="MaCa" ColumnName="MaCa" />
                 <ScalarProperty Name="MaSanh" ColumnName="MaSanh" />
                 <ScalarProperty Name="SoBan" ColumnName="SoBan" />
                 <ScalarProperty Name="SoBanDuTru" ColumnName="SoBanDuTru" />
@@ -743,41 +756,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LoaiCas">
-            <EntityTypeMapping TypeName="QLyTiecCuoiModel.LoaiCa">
-              <MappingFragment StoreEntitySet="LoaiCa">
-                <ScalarProperty Name="TenCa" ColumnName="TenCa" />
-                <ScalarProperty Name="MaCa" ColumnName="MaCa" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ThamSoes">
-            <EntityTypeMapping TypeName="QLyTiecCuoiModel.ThamSo">
-              <MappingFragment StoreEntitySet="ThamSo">
-                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-                <ScalarProperty Name="GiaTri" ColumnName="GiaTri" />
-                <ScalarProperty Name="MaTS" ColumnName="MaTS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="GetAllLoaiSanh" FunctionName="QLyTiecCuoiModel.Store.GetAllLoaiSanh">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="QLyTiecCuoiModel.GetAllLoaiSanh_Result">
-                <ScalarProperty Name="MaLoaiSanh" ColumnName="MaLoaiSanh" />
-                <ScalarProperty Name="TenLoaiSanh" ColumnName="TenLoaiSanh" />
-                <ScalarProperty Name="GiaBanToiThieu" ColumnName="GiaBanToiThieu" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="LoaiSanh_SelectLoaiSanh" FunctionName="QLyTiecCuoiModel.Store.LoaiSanh_SelectLoaiSanh">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="QLyTiecCuoiModel.LoaiSanh_SelectLoaiSanh_Result">
-                <ScalarProperty Name="MaLoaiSanh" ColumnName="MaLoaiSanh" />
-                <ScalarProperty Name="TenLoaiSanh" ColumnName="TenLoaiSanh" />
-                <ScalarProperty Name="GiaBanToiThieu" ColumnName="GiaBanToiThieu" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QLyTiecCuoiModel.Store.sp_alterdiagram" />
           <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QLyTiecCuoiModel.Store.sp_creatediagram" />
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QLyTiecCuoiModel.Store.sp_dropdiagram" />

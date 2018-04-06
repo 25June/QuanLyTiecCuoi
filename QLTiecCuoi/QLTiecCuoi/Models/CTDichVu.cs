@@ -15,10 +15,10 @@ namespace QLTiecCuoi.Models
     public partial class CTDichVu
     {
         public string MaDV { get; set; }
+        public string MaTiecCuoi { get; set; }
         public string TenDV { get; set; }
         public string SoLuong { get; set; }
         public Nullable<int> GiaDV { get; set; }
-        public string MaTiecCuoi { get; set; }
     
         public virtual DichVu DichVu { get; set; }
         public virtual TiecCuoi TiecCuoi { get; set; }

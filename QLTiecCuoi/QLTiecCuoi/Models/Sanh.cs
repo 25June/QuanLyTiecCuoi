@@ -22,7 +22,7 @@ namespace QLTiecCuoi.Models
     
         public string MaSanh { get; set; }
         public string TenSanh { get; set; }
-        public string MaLoaiSanh { get; set; }
+        public Nullable<int> MaLoaiSanh { get; set; }
         public Nullable<int> SoLuongBanToiThieu { get; set; }
         public Nullable<int> SoLuongBanToiDa { get; set; }
     

@@ -160,68 +160,68 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CTDichVu.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CTMonAn.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DichVu.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DoanhSo.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllLoaiSanh_Result.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HoaDon.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiCa.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiSanh.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LoaiSanh_SelectLoaiSanh_Result.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MonAn.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLTiecCuoiModel.Context.cs">
+    <Compile Include="Models\QLyTiecCuoiEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLTiecCuoiModel.Context.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLTiecCuoiModel.cs">
+    <Compile Include="Models\QLyTiecCuoiEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\QLTiecCuoiModel.Designer.cs">
+    <Compile Include="Models\QLyTiecCuoiEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLTiecCuoiModel.edmx</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Sanh.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\ThamSo.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TiecCuoi.cs">
-      <DependentUpon>QLTiecCuoiModel.tt</DependentUpon>
+      <DependentUpon>QLyTiecCuoiEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -239,27 +239,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\QLTiecCuoiModel.Context.tt">
+    <Content Include="Models\QLyTiecCuoiEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLTiecCuoiModel.edmx</DependentUpon>
-      <LastGenOutput>QLTiecCuoiModel.Context.cs</LastGenOutput>
+      <DependentUpon>QLyTiecCuoiEntities.edmx</DependentUpon>
+      <LastGenOutput>QLyTiecCuoiEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\QLTiecCuoiModel.tt">
+    <Content Include="Models\QLyTiecCuoiEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QLTiecCuoiModel.edmx</DependentUpon>
-      <LastGenOutput>QLTiecCuoiModel.cs</LastGenOutput>
+      <DependentUpon>QLyTiecCuoiEntities.edmx</DependentUpon>
+      <LastGenOutput>QLyTiecCuoiEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\QLTiecCuoiModel.edmx">
+    <EntityDeploy Include="Models\QLyTiecCuoiEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLTiecCuoiModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLyTiecCuoiEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\QLTiecCuoiModel.edmx.diagram">
-      <DependentUpon>QLTiecCuoiModel.edmx</DependentUpon>
+    <Content Include="Models\QLyTiecCuoiEntities.edmx.diagram">
+      <DependentUpon>QLyTiecCuoiEntities.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DevScript\main.js" />
