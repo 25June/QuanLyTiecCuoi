@@ -25,7 +25,7 @@ namespace QLTiecCuoi.Controllers
 
         // GET: LoaiSanh/Details/5
         
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -40,8 +40,9 @@ namespace QLTiecCuoi.Controllers
             return View(loaiSanh);
         }
        
-        public ActionResult DetailsAjax(string id)
+        public ActionResult DetailsAjax(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -56,10 +57,27 @@ namespace QLTiecCuoi.Controllers
         // GET: LoaiSanh/Create
         public ActionResult Create()
         {
+            
             return View();
         }
 
-      
+        [HttpPost]
+        public ActionResult Create(LoaiSanh loaiSanh)
+        {
+            try
+            {
+                if(ModelState.IsValid)
+                {
+                    //insert
+                    return RedirectToAction("index");
+                }
+                return View(loaiSanh);
+            }
+            catch
+            {
+                return View();
+            }           
+        }
 
         // GET: LoaiSanh/Edit/5
         public ActionResult Edit(string id)

@@ -20,6 +20,7 @@ namespace QLTiecCuoi.Models
         public QLyTiecCuoiEntities()
             : base("name=QLyTiecCuoiEntities")
         {
+            Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

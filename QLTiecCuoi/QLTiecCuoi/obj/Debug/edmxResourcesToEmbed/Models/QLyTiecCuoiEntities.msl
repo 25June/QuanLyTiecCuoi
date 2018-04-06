@@ -126,24 +126,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="GetAllLoaiSanh" FunctionName="QLyTiecCuoiModel.Store.GetAllLoaiSanh">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="QLyTiecCuoiModel.GetAllLoaiSanh_Result">
-          <ScalarProperty Name="MaLoaiSanh" ColumnName="MaLoaiSanh" />
-          <ScalarProperty Name="TenLoaiSanh" ColumnName="TenLoaiSanh" />
-          <ScalarProperty Name="GiaBanToiThieu" ColumnName="GiaBanToiThieu" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="LoaiSanh_SelectLoaiSanh" FunctionName="QLyTiecCuoiModel.Store.LoaiSanh_SelectLoaiSanh">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="QLyTiecCuoiModel.LoaiSanh_SelectLoaiSanh_Result">
-          <ScalarProperty Name="MaLoaiSanh" ColumnName="MaLoaiSanh" />
-          <ScalarProperty Name="TenLoaiSanh" ColumnName="TenLoaiSanh" />
-          <ScalarProperty Name="GiaBanToiThieu" ColumnName="GiaBanToiThieu" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="QLyTiecCuoiModel.Store.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="QLyTiecCuoiModel.Store.sp_creatediagram" />
     <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="QLyTiecCuoiModel.Store.sp_dropdiagram" />
